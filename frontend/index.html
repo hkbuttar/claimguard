@@ -1,75 +1,13 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ClaimGuard motor insurance risk intelligence dashboard">
-  <title>ClaimGuard · Risk Intelligence</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <aside class="sidebar">
-    <a class="brand" href="#overview"><span>CG</span><strong>ClaimGuard</strong></a>
-    <p class="eyebrow">Motor TPL intelligence</p>
-    <nav aria-label="Dashboard views">
-      <button class="nav-item active" data-view="overview">Portfolio overview</button>
-      <button class="nav-item" data-view="explorer">Policy explorer</button>
-      <button class="nav-item" data-view="models">Actuarial vs. ML</button>
-      <button class="nav-item" data-view="tail">Tail-risk lab</button>
-      <button class="nav-item" data-view="portfolio">Portfolio risk</button>
-      <button class="nav-item" data-view="bonus">Bonus-Malus</button>
-    </nav>
-    <div class="status"><i></i><span id="api-status">Connecting</span></div>
-  </aside>
-
-  <main>
-    <header>
-      <div><p class="eyebrow">Research dashboard</p><h1 id="page-title">Portfolio overview</h1></div>
-      <div class="data-badge">freMTPL2 · France</div>
-    </header>
-
-    <section id="overview" class="view active">
-      <div id="overview-metrics" class="metric-grid skeleton"></div>
-      <div class="panel-grid">
-        <article class="panel wide"><div class="panel-title"><div><p class="eyebrow">Loss structure</p><h2>Tail concentration</h2></div></div><div id="concentration-bars" class="bars"></div></article>
-        <article class="panel insight"><p class="eyebrow">Portfolio signal</p><h2>Why the tail matters</h2><p id="tail-insight">Loading portfolio evidence…</p></article>
-      </div>
-    </section>
-
-    <section id="explorer" class="view">
-      <div class="explorer-grid">
-        <form id="policy-form" class="panel form-panel">
-          <div class="panel-title"><div><p class="eyebrow">Policy features</p><h2>Estimate risk</h2></div></div>
-          <div class="form-grid">
-            <label>Exposure<input name="exposure" type="text" inputmode="decimal" value="1" required></label>
-            <label>Area<select name="area"><option>A</option><option>B</option><option>C</option><option selected>D</option><option>E</option><option>F</option></select></label>
-            <label>Vehicle power<input name="vehicle_power" type="number" value="6" min="4" max="15" required></label>
-            <label>Vehicle age<input name="vehicle_age" type="number" value="5" min="0" required></label>
-            <label>Driver age<input name="driver_age" type="number" value="40" min="18" required></label>
-            <label>Bonus-Malus<input name="bonus_malus" type="number" value="60" min="50" required></label>
-            <label>Vehicle brand<select name="vehicle_brand" id="vehicle-brand"></select></label>
-            <label>Fuel<select name="fuel_type"><option value="'Diesel'">Diesel</option><option value="'Regular'" selected>Regular</option></select></label>
-            <label>Density<input name="density" type="number" value="500" min="0" required></label>
-            <label>Region<select name="region" id="region"></select></label>
-          </div>
-          <button class="primary" type="submit">Score policy <span>→</span></button>
-          <p id="score-error" class="error" role="alert"></p>
-        </form>
-        <article class="panel result-panel">
-          <div id="empty-score" class="empty"><div class="radar-mark">CG</div><h2>Ready to assess</h2><p>Enter policy characteristics to generate a complete risk profile.</p></div>
-          <div id="score-result" hidden></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="models" class="view"><div class="panel"><div class="panel-title"><div><p class="eyebrow">Common holdouts</p><h2>Model benchmark</h2></div><select id="model-task" aria-label="Model task"></select></div><div id="benchmark-table" class="table-wrap"></div></div><div class="panel"><div class="panel-title"><div><p class="eyebrow">Risk ordering</p><h2>Observed loss by predicted decile</h2></div><select id="decile-model"><option value="tweedie">Tweedie GLM</option><option value="gbm_component">GBM components</option><option value="direct_boosting">Direct boosting</option><option value="poisson_gamma">Poisson × Gamma</option></select></div><div id="decile-chart" class="bars horizontal"></div></div></section>
-
-    <section id="tail" class="view"><div id="tail-metrics" class="metric-grid"></div><div class="panel-grid"><article class="panel wide"><div class="panel-title"><div><p class="eyebrow">Distribution comparison</p><h2>Extreme severity quantiles</h2></div></div><div id="quantile-table" class="table-wrap"></div></article><article class="panel insight"><p class="eyebrow">Peaks over threshold</p><h2>GPD diagnosis</h2><div id="gpd-details"></div></article></div></section>
-
-    <section id="portfolio" class="view"><div id="stress-metrics" class="metric-grid"></div><div class="panel"><div class="panel-title"><div><p class="eyebrow">Frequency × severity</p><h2>Policy risk segments</h2></div></div><div id="segment-table" class="table-wrap"></div></div></section>
-
-    <section id="bonus" class="view"><div class="panel"><div class="panel-title"><div><p class="eyebrow">Experience rating</p><h2>Observed risk by Bonus-Malus</h2></div></div><div id="bonus-chart" class="bars horizontal"></div></div><div class="panel insight full"><p class="eyebrow">Interpretation</p><h2>Does the system separate risk?</h2><p id="bonus-insight">Loading evidence…</p></div></section>
-  </main>
-  <script src="app.js" defer></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ClaimGuard motor insurance risk intelligence dashboard" />
+    <title>ClaimGuard · Risk Intelligence</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

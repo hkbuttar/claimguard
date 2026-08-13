@@ -1,3 +1,11 @@
+FROM node:22-slim AS frontend-build
+
+WORKDIR /frontend
+COPY frontend/package*.json ./
+RUN npm ci
+COPY frontend/ ./
+RUN npm run build
+
 FROM python:3.14-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -15,7 +23,7 @@ RUN pip install --no-cache-dir --upgrade pip \
 COPY backend backend
 COPY deployment deployment
 COPY frequency frequency
-COPY frontend frontend
+COPY --from=frontend-build /frontend/dist frontend/dist
 COPY integration integration
 COPY severity severity
 COPY deployment/bundle/data data

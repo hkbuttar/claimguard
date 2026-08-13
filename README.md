@@ -313,7 +313,7 @@ claimguard/
 ├── explainability/    coefficients, permutation importance, and SHAP
 ├── integration/       benchmark, findings, and unified risk engine
 ├── backend/           typed FastAPI inference service
-├── frontend/          dependency-free responsive dashboard
+├── frontend/          React and Vite responsive dashboard
 ├── deployment/        artifact bundling and startup validation
 ├── notebooks/         reproducible research notebook
 └── tests/             deterministic and module-level validation
@@ -371,7 +371,7 @@ checksums. Generated data and most reports are excluded from version control.
 ```bash
 pytest -q
 ruff check .
-node --check frontend/app.js
+cd frontend && npm run lint && npm run build
 ```
 
 The test suite includes deterministic synthetic portfolios with mathematically
@@ -386,6 +386,21 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000
 
 Open `http://localhost:8000/dashboard/` for the dashboard or
 `http://localhost:8000/docs` for the API schema.
+
+For frontend development with hot reloading, run the API on port 8000 and then:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Vite serves the React application at `http://localhost:5173` and proxies API
+requests to FastAPI.
+
+For a split deployment, set `VITE_API_BASE_URL` in Vercel to the Render service
+origin and set `ALLOWED_ORIGINS` in Render to the Vercel site origin. Multiple
+allowed origins can be supplied as a comma-separated list.
 
 To score a JSON policy without HTTP:
 

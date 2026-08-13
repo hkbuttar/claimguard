@@ -129,6 +129,24 @@ def test_dashboard_assets_are_served(tmp_path: Path) -> None:
     assert "ClaimGuard" in dashboard.text
 
 
+def test_configured_frontend_origin_receives_cors_headers(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    monkeypatch.setenv("ALLOWED_ORIGINS", "https://claimguard.vercel.app")
+    with TestClient(create_app(StubEngine(), tmp_path)) as client:
+        response = client.options(
+            "/policy/score",
+            headers={
+                "Origin": "https://claimguard.vercel.app",
+                "Access-Control-Request-Method": "POST",
+            },
+        )
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == (
+        "https://claimguard.vercel.app"
+    )
+
+
 def test_missing_report_returns_service_unavailable(tmp_path: Path) -> None:
     with TestClient(create_app(StubEngine(), tmp_path)) as client:
         response = client.get("/models/frequency")

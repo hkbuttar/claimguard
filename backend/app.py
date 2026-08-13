@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import os
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from dataclasses import asdict
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -15,7 +17,7 @@ from backend.artifacts import ArtifactRepository
 from backend.schemas import HealthResponse, PolicyRequest, RiskProfileResponse
 from integration.risk_engine import DEFAULT_REPORTS, ClaimGuardRiskEngine
 
-DEFAULT_FRONTEND = Path(__file__).resolve().parents[1] / "frontend"
+DEFAULT_FRONTEND = Path(__file__).resolve().parents[1] / "frontend" / "dist"
 
 
 def create_app(
@@ -39,6 +41,19 @@ def create_app(
         description="Inference and precomputed analytics for French motor TPL risk.",
         lifespan=lifespan,
     )
+    allowed_origins = [
+        origin.strip()
+        for origin in os.environ.get("ALLOWED_ORIGINS", "").split(",")
+        if origin.strip()
+    ]
+    if allowed_origins:
+        application.add_middleware(
+            CORSMiddleware,
+            allow_origins=allowed_origins,
+            allow_credentials=False,
+            allow_methods=["GET", "POST"],
+            allow_headers=["Content-Type"],
+        )
     if engine is not None:
         application.state.risk_engine = engine
     repository = ArtifactRepository(reports_dir)
