@@ -55,6 +55,11 @@ Interactive OpenAPI documentation is available at `/docs`. The service scores
 policies at `POST /policy/score` and exposes read-only portfolio, model,
 calibration, tail-risk, and Bonus-Malus reports. It never trains models.
 
+The same process serves the responsive research dashboard at
+`http://localhost:8000/dashboard/`. It includes portfolio indicators, an
+interactive policy scorer, actuarial-versus-ML comparisons, loss deciles, EVT
+diagnostics, aggregate stress metrics, risk segments, and Bonus-Malus analysis.
+
 ## Data audit and reconciliation
 
 Profile data quality and reconcile policy claim counts against observed claim

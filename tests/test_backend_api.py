@@ -80,7 +80,20 @@ def test_report_endpoints_are_read_only_artifact_views(tmp_path: Path) -> None:
         "extreme_value/metrics.json": '{"threshold": 5000}',
         "bonus_malus/metrics.json": '{"levels": 3}',
         "risk_segments/segment_summary.csv": "RiskSegment,Policies\nStandard Risk,4\n",
+        "model_benchmark/model_benchmark.csv": "Task,Model\nFrequency,Poisson\n",
+        "extreme_value/high_quantile_comparison.csv": "Probability,EVT\n0.99,1000\n",
+        "bonus_malus/observed_by_bonus_malus.csv": "BonusMalus,PurePremium\n50,100\n",
     }
+    for model in (
+        "poisson_gamma",
+        "poisson_lognormal",
+        "tweedie",
+        "gbm_component",
+        "direct_boosting",
+    ):
+        paths[f"risk_deciles/{model}_deciles.csv"] = (
+            "RiskDecile,ObservedLossCost\n1,100\n"
+        )
     for relative, content in paths.items():
         path = tmp_path / relative
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -94,8 +107,26 @@ def test_report_endpoints_are_read_only_artifact_views(tmp_path: Path) -> None:
         assert client.get("/models/severity").json()["winner"] == "gamma"
         assert client.get("/models/pure-premium").json()["winner"] == "tweedie"
         assert client.get("/models/calibration").json()["ratio"] == 1.0
+        assert client.get("/models/benchmark").json()[0]["Model"] == "Poisson"
         assert client.get("/tail-risk").json()["threshold"] == 5000
+        assert client.get("/tail-risk/quantiles").json()[0]["EVT"] == 1000
         assert client.get("/bonus-malus").json()["levels"] == 3
+        assert client.get("/bonus-malus/observed").json()[0]["PurePremium"] == 100
+        assert client.get("/portfolio/risk-deciles").json()["tweedie"][0][
+            "RiskDecile"
+        ] == 1
+
+
+def test_dashboard_assets_are_served(tmp_path: Path) -> None:
+    frontend = tmp_path / "frontend"
+    frontend.mkdir()
+    (frontend / "index.html").write_text("<h1>ClaimGuard</h1>")
+    with TestClient(create_app(StubEngine(), tmp_path, frontend)) as client:
+        redirect = client.get("/", follow_redirects=False)
+        dashboard = client.get("/dashboard/")
+    assert redirect.status_code == 307
+    assert dashboard.status_code == 200
+    assert "ClaimGuard" in dashboard.text
 
 
 def test_missing_report_returns_service_unavailable(tmp_path: Path) -> None:
