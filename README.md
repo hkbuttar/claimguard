@@ -226,3 +226,15 @@ python -m segmentation.risk_segments
 
 The output assigns every policy to standard risk, frequent claimant,
 catastrophic exposure, or critical risk without introducing arbitrary clustering.
+
+## Bonus-Malus analysis
+
+Evaluate observed and controlled frequency, severity, and pure premium across
+French Bonus-Malus levels with:
+
+```bash
+python -m portfolio.bonus_malus_analysis
+```
+
+Nested held-out GLMs test whether Bonus-Malus adds predictive value after
+controlling for driver, vehicle, and geographic rating characteristics.
