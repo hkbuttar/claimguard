@@ -320,3 +320,15 @@ python -m preprocessing.data_quality_sensitivity
 
 The analysis quantifies changes in portfolio targets, tail concentration, and
 held-out Tweedie performance, including the effect of clipping extreme claims.
+
+## Research findings
+
+Synthesize all verified evidence into classified findings and a reproducible
+research notebook with:
+
+```bash
+python -m integration.research_findings
+```
+
+The synthesis answers the twelve core research questions and classifies each
+result as robust, suggestive, exploratory, or data-limited.

@@ -15,3 +15,5 @@ data/audit/*
 data/.cache/
 reports/*
 !reports/.gitkeep
+!reports/research_findings/
+!reports/research_findings/**
