@@ -70,3 +70,14 @@ python -m integration.actuarial_baselines
 
 The output includes policy- and claim-level predictions plus transparent
 in-sample diagnostics under `reports/actuarial_baselines/`.
+
+## Traditional claim-frequency models
+
+Fit Poisson and Negative Binomial GLMs with log exposure offsets using:
+
+```bash
+python -m frequency.traditional_models
+```
+
+Held-out metrics, coefficient tables, risk-decile calibration, predictions, and
+a calibration chart are written to `reports/traditional_frequency/`.
