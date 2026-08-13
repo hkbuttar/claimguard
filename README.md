@@ -141,3 +141,15 @@ python -m pure_premium.tweedie_model
 
 All candidates use a common policy holdout. The command also refits and stores a
 direct Tweedie scoring pipeline for the complete portfolio.
+
+## Nonlinear pure premium
+
+Compare traditional expected-loss models with component-based gradient boosting
+and direct Tweedie boosting using:
+
+```bash
+python -m pure_premium.ml_model
+```
+
+The common-holdout report covers Tweedie deviance, MAE, aggregate calibration,
+normalized Gini, top-decile loss capture, and calibration by predicted risk.
