@@ -6,6 +6,8 @@ nonlinear machine learning for claim frequency, conditional severity, pure
 premium, risk ranking, and extreme-loss behavior—then serves the fitted system
 through an inference API and interactive dashboard.
 
+**Live demo:** [claimguard-eight.vercel.app](https://claimguard-eight.vercel.app/)
+
 > Can modern machine learning improve auto-insurance risk estimation over
 > traditional actuarial frequency–severity models, and do those improvements
 > survive calibration and extreme-loss testing?
