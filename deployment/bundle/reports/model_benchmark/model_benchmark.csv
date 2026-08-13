@@ -1,0 +1,10 @@
+Task,Metric,TraditionalModel,TraditionalValue,MLModel,MLValue,Winner
+Frequency,Mean Poisson deviance,Poisson GLM,0.3211516739346799,HistGradientBoosting,0.3048057129524603,ML
+Severity average error,MAE (€),Gamma GLM,2147.6932996993187,XGBoost,1777.3875509538684,ML
+Severity distribution,Mean Gamma deviance,Lognormal,1.6324016849968768,XGBoost,1.7264742496869394,Traditional
+Pure premium,Mean Tweedie deviance,Tweedie GLM,70.6666013400629,GBM components,68.26145653474445,ML
+Risk ranking,Normalized Gini,Tweedie GLM,0.1888945686834701,Direct Boosting,0.2294107725755106,ML
+Pure-premium calibration,Absolute aggregate ratio error,Tweedie GLM,0.006682773004873632,GBM components,0.1612815470227582,Traditional
+Top-5% severity,MAE (€),Lognormal,19278.67287414577,Random Forest,19833.068919233658,Traditional
+Top-1% severity capture,Predicted/observed loss,Lognormal,0.0277597379462318,Random Forest,0.0289304782353454,Neither
+Interpretability,Transparent coefficients and uncertainty,GLMs,1.0,Boosting + SHAP,0.0,Traditional

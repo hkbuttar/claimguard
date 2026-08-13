@@ -1,0 +1,40 @@
+{
+  "generated_at_utc": "2026-08-13T16:28:29.497021+00:00",
+  "split": {
+    "test_size": 0.2,
+    "training_policies": 542410,
+    "test_policies": 135603,
+    "training_claims": 21044,
+    "test_claims": 5400
+  },
+  "frequency": {
+    "reduced_deviance": 0.32725466761293753,
+    "full_deviance": 0.3211516739346799,
+    "coefficient_per_point": 0.022451441021340904,
+    "p_value": 0.0,
+    "relativity_per_10_points": 1.2517147486947158,
+    "relativity_95_low": 1.2433483831408243,
+    "relativity_95_high": 1.2601374106764873,
+    "deviance_improvement": 0.018649065337323023
+  },
+  "severity": {
+    "reduced_deviance": 1.8756248654753964,
+    "full_deviance": 1.8780281736670352,
+    "coefficient_per_point": 0.007095125262123712,
+    "p_value": 0.002582574360312447,
+    "relativity_per_10_points": 1.0735288928732658,
+    "relativity_95_low": 1.025115065524224,
+    "relativity_95_high": 1.1242291939630717,
+    "deviance_improvement": -0.0012813373483560042
+  },
+  "pure_premium": {
+    "reduced_deviance": 72.60827430209464,
+    "full_deviance": 71.55592885218756,
+    "coefficient_per_point": 0.03854243971356649,
+    "p_value": 2.1935524678399695e-18,
+    "relativity_per_10_points": 1.4702381539166907,
+    "relativity_95_low": 1.3485905488184253,
+    "relativity_95_high": 1.6028588003425173,
+    "deviance_improvement": 0.014493464553759883
+  }
+}

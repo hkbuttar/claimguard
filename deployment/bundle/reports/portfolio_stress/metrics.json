@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-08-13T16:39:13.134938+00:00",
+  "simulations": 10000,
+  "random_state": 42,
+  "expected_claims": 36102.0,
+  "evt": {
+    "threshold": 4765.093499999995,
+    "exceedances": 1323,
+    "exceedance_probability": 0.05003025260928755,
+    "mean_excess": 18824.16517724868,
+    "shape": 0.9039543413360036,
+    "scale": 3479.082638800243,
+    "finite_mean": true,
+    "finite_variance": false,
+    "expected_excess": 36223.21599117118,
+    "expected_claim_given_exceedance": 40988.309491171174
+  },
+  "full_tail": {
+    "mean": 105187683.5806771,
+    "standard_deviation": 376589857.1296248,
+    "median": 83870462.85024613,
+    "minimum": 67129625.32662578,
+    "maximum": 26907305329.6644,
+    "mean_standard_error": 3765898.5712962477,
+    "var_95": 141001305.95386708,
+    "expected_shortfall_95": 453928052.3384028,
+    "var_99": 313240463.0440771,
+    "expected_shortfall_99": 1525040950.6490934
+  },
+  "tail_removed": {
+    "mean": 39184231.60767627,
+    "standard_deviation": 257531.89239521744,
+    "median": 39186710.58499948,
+    "minimum": 38266076.31999936,
+    "maximum": 40220631.79999892,
+    "mean_standard_error": 2575.3189239521744,
+    "var_95": 39606061.140998945,
+    "expected_shortfall_95": 39717247.23383913,
+    "var_99": 39796701.19229905,
+    "expected_shortfall_99": 39867703.13449907
+  },
+  "tail_impact": {
+    "mean_loss_share": 0.6274827025958543,
+    "variance_share": 0.9999995323458414,
+    "expected_shortfall_99_share": 0.9738579458357951
+  }
+}

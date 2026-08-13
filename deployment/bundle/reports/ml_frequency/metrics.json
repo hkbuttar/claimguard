@@ -1,0 +1,39 @@
+{
+  "generated_at_utc": "2026-08-13T15:54:37.913417+00:00",
+  "split": {
+    "random_state": 42,
+    "test_size": 0.2,
+    "training_policies": 542410,
+    "test_policies": 135603
+  },
+  "naive_annual_frequency": 0.10064376567761477,
+  "metrics": {
+    "naive_rate": {
+      "poisson_deviance": 44938.17194215944,
+      "mean_poisson_deviance": 0.3313951162006699,
+      "observed_claims": 7241.0,
+      "expected_claims": 7205.710482421851,
+      "observed_expected_ratio": 1.0048974376176,
+      "mean_observed_frequency": 0.10113666224162124,
+      "mean_expected_frequency": 0.10064376567761475
+    },
+    "hist_gradient_boosting": {
+      "poisson_deviance": 41332.56909349247,
+      "mean_poisson_deviance": 0.3048057129524603,
+      "observed_claims": 7241.0,
+      "expected_claims": 7197.199394752979,
+      "observed_expected_ratio": 1.0060857846010147,
+      "mean_observed_frequency": 0.10113666224162124,
+      "mean_expected_frequency": 0.10052488941758499
+    },
+    "xgboost": {
+      "poisson_deviance": 41408.0740846247,
+      "mean_poisson_deviance": 0.30536252210220055,
+      "observed_claims": 7241.0,
+      "expected_claims": 7185.959284304772,
+      "observed_expected_ratio": 1.0076594805950885,
+      "mean_observed_frequency": 0.10113666224162124,
+      "mean_expected_frequency": 0.10036789628763625
+    }
+  }
+}

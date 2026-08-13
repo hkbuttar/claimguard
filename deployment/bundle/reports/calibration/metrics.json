@@ -1,0 +1,153 @@
+{
+  "generated_at_utc": "2026-08-13T16:36:39.548602+00:00",
+  "frequency": {
+    "Naive Rate": {
+      "observed": 7241.0,
+      "expected": 7205.710482421851,
+      "observed_expected_ratio": 1.0048974376176,
+      "aggregate_bias": -35.28951757814866,
+      "mean_bias": -0.00026024142222626706,
+      "decile_weighted_absolute_frequency_error": 0.0
+    },
+    "Poisson GLM": {
+      "observed": 7241.0,
+      "expected": 7196.271817958741,
+      "observed_expected_ratio": 1.0062154658929972,
+      "aggregate_bias": -44.72818204125906,
+      "mean_bias": -0.00032984655237169365,
+      "decile_weighted_absolute_frequency_error": 0.004062472631141336
+    },
+    "Negative Binomial GLM": {
+      "observed": 7241.0,
+      "expected": 7276.753041692206,
+      "observed_expected_ratio": 0.9950866765042926,
+      "aggregate_bias": 35.75304169220635,
+      "mean_bias": 0.0002636596660266101,
+      "decile_weighted_absolute_frequency_error": 0.0037702624095575232
+    },
+    "HistGradientBoosting": {
+      "observed": 7241.0,
+      "expected": 7197.199394752979,
+      "observed_expected_ratio": 1.0060857846010147,
+      "aggregate_bias": -43.80060524702094,
+      "mean_bias": -0.0003230061668769902,
+      "decile_weighted_absolute_frequency_error": 0.0030923905478278156
+    },
+    "XGBoost": {
+      "observed": 7241.0,
+      "expected": 7185.95947265625,
+      "observed_expected_ratio": 1.0076594541832846,
+      "aggregate_bias": -55.04052734375,
+      "mean_bias": -0.00040589600300308876,
+      "decile_weighted_absolute_frequency_error": 0.00423186851929655
+    }
+  },
+  "severity": {
+    "Mean": {
+      "observed": 11323958.12,
+      "expected": 12083796.377553951,
+      "observed_expected_ratio": 0.9371192435048495,
+      "aggregate_bias": 759838.2575539518,
+      "mean_bias": 144.26395624719018,
+      "decile_weighted_absolute_severity_error": 0.0
+    },
+    "Gamma GLM": {
+      "observed": 11323958.12,
+      "expected": 11689490.763439182,
+      "observed_expected_ratio": 0.968729806042326,
+      "aggregate_bias": 365532.643439183,
+      "mean_bias": 69.40053985934733,
+      "decile_weighted_absolute_severity_error": 828.3696981458719
+    },
+    "Lognormal": {
+      "observed": 11323958.12,
+      "expected": 12195015.339984024,
+      "observed_expected_ratio": 0.9285726835350446,
+      "aggregate_bias": 871057.2199840248,
+      "mean_bias": 165.38014429163152,
+      "decile_weighted_absolute_severity_error": 640.8361579003332
+    },
+    "Random Forest": {
+      "observed": 11323958.12,
+      "expected": 11909952.541361336,
+      "observed_expected_ratio": 0.9507979213748944,
+      "aggregate_bias": 585994.4213613365,
+      "mean_bias": 111.25772192165077,
+      "decile_weighted_absolute_severity_error": 897.2458100353228
+    },
+    "HistGradientBoosting": {
+      "observed": 11323958.12,
+      "expected": 10425715.840836197,
+      "observed_expected_ratio": 1.0861564129386208,
+      "aggregate_bias": -898242.279163802,
+      "mean_bias": -170.5415377185879,
+      "decile_weighted_absolute_severity_error": 540.3447850370144
+    },
+    "XGBoost": {
+      "observed": 11323958.12,
+      "expected": 8962430.0,
+      "observed_expected_ratio": 1.2634919458227287,
+      "aggregate_bias": -2361528.119999999,
+      "mean_bias": -448.3631233730139,
+      "decile_weighted_absolute_severity_error": 681.1177955246478
+    }
+  },
+  "pure_premium": {
+    "Poisson \u00d7 Gamma": {
+      "observed": 11868103.84,
+      "expected": 15815797.195144448,
+      "observed_expected_ratio": 0.7503955503200044,
+      "aggregate_bias": 3947693.3551444486,
+      "mean_bias": 29.112138781180732,
+      "segment_weighted_absolute_loss_cost_error": 55.13831369876219
+    },
+    "Poisson \u00d7 Lognormal": {
+      "observed": 11868103.84,
+      "expected": 16873202.17255167,
+      "observed_expected_ratio": 0.7033699779468258,
+      "aggregate_bias": 5005098.332551669,
+      "mean_bias": 36.909938073285026,
+      "segment_weighted_absolute_loss_cost_error": 69.90732489233255
+    },
+    "Tweedie GLM": {
+      "observed": 11868103.84,
+      "expected": 11788791.996039012,
+      "observed_expected_ratio": 1.0067277329167938,
+      "aggregate_bias": -79311.8439609874,
+      "mean_bias": -0.5848826645501032,
+      "segment_weighted_absolute_loss_cost_error": 31.40598353329177
+    },
+    "GBM Components": {
+      "observed": 11868103.84,
+      "expected": 13782209.987541936,
+      "observed_expected_ratio": 0.8611176183447979,
+      "aggregate_bias": 1914106.1475419365,
+      "mean_bias": 14.115514756619973,
+      "segment_weighted_absolute_loss_cost_error": 27.640045453697795
+    },
+    "Direct Boosting": {
+      "observed": 11868103.84,
+      "expected": 8141563.987839751,
+      "observed_expected_ratio": 1.4577179345057305,
+      "aggregate_bias": -3726539.852160249,
+      "mean_bias": -27.481249324574296,
+      "segment_weighted_absolute_loss_cost_error": 52.04941339012183
+    }
+  },
+  "large_loss": {
+    "Logistic": {
+      "observed_event_rate": 0.04917410290487944,
+      "mean_predicted_probability": 0.04962912191458754,
+      "observed_expected_ratio": 0.9908316127274789,
+      "brier_score": 0.04674267086073326,
+      "reliability_weighted_absolute_error": 0.01024569869524464
+    },
+    "Gradient Boosting": {
+      "observed_event_rate": 0.04917410290487944,
+      "mean_predicted_probability": 0.0492992493860833,
+      "observed_expected_ratio": 0.9974614931715534,
+      "brier_score": 0.046688314263212044,
+      "reliability_weighted_absolute_error": 0.008681029667879859
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "generated_at_utc": "2026-08-13T17:02:19.799608+00:00",
+  "files": [
+    {
+      "path": "data/processed/policy_loss.parquet",
+      "bytes": 8280093,
+      "sha256": "6c1f26ee4bf64ccd15eab1632b4829a650e0a8be8213a32f52e3d7590fedd6a7"
+    },
+    {
+      "path": "reports/component_pure_premium/models/frequency_hist_gradient_boosting.joblib",
+      "bytes": 524384,
+      "sha256": "42596b9372f6150eaa6f6a94f7011f8a02c44c15078dc14b6a2a3c81f16aa661"
+    },
+    {
+      "path": "reports/component_pure_premium/models/severity_hist_gradient_boosting.joblib",
+      "bytes": 130528,
+      "sha256": "1987bdc4082ffe5d92340f9421b23ddf5a34aaa9912a9c335fb4c1679437906a"
+    },
+    {
+      "path": "reports/risk_segments/large_loss_probability_model.joblib",
+      "bytes": 180008,
+      "sha256": "923aded41953191ff3cf0bddc89ea595f2ffe5eee9edb52306b45116d3090bb2"
+    },
+    {
+      "path": "reports/risk_segments/metrics.json",
+      "bytes": 3220,
+      "sha256": "62634f25526b057365f5e50e93f4836809023b03a5a79e636803979bd6650f69"
+    },
+    {
+      "path": "reports/risk_segments/policy_segments.parquet",
+      "bytes": 26988255,
+      "sha256": "311c196ae080e36ede3fa83a13766665b3881e1067069753a3e2292b0e1708fd"
+    },
+    {
+      "path": "reports/risk_segments/segment_summary.csv",
+      "bytes": 1289,
+      "sha256": "193972473b858c4c359cd0688cdac27875ba55f8a78b1d764866fa708d8675b4"
+    },
+    {
+      "path": "reports/portfolio_analysis/summary.json",
+      "bytes": 1241,
+      "sha256": "5a303dda990a0727e6b4c98e690897229101cd4b97dcb44327c35e29aa3108d1"
+    },
+    {
+      "path": "reports/portfolio_stress/metrics.json",
+      "bytes": 1506,
+      "sha256": "52a7e7bb5e4aa7bb7131f2e47f519bb22b1911f52e835d5cf489b1e5648f476f"
+    },
+    {
+      "path": "reports/ml_frequency/metrics.json",
+      "bytes": 1340,
+      "sha256": "2eb54fe25618f7ef02260f445ac76f2576169d77e344265bdcc89b3b38066602"
+    },
+    {
+      "path": "reports/ml_severity/metrics.json",
+      "bytes": 1400,
+      "sha256": "e3679b9d9f2d241d1d56e27f0c6b479516eb8a5eb673f9541f9230bb6c70e650"
+    },
+    {
+      "path": "reports/ml_pure_premium/metrics.json",
+      "bytes": 2420,
+      "sha256": "453e9d6f260abb99c374e347eeffa7ae88c14211d612f03a52aad65921e6c609"
+    },
+    {
+      "path": "reports/calibration/metrics.json",
+      "bytes": 5547,
+      "sha256": "acd3589622dd6e33fb6327de1e8487a275f7e8894a52a2651cc1d445da202f7c"
+    },
+    {
+      "path": "reports/model_benchmark/model_benchmark.csv",
+      "bytes": 1026,
+      "sha256": "676e8fe50fb3559cde719ca07c2ce209a5c2deeae69006f91f870492883298e8"
+    },
+    {
+      "path": "reports/risk_deciles/poisson_gamma_deciles.csv",
+      "bytes": 2164,
+      "sha256": "67c65a51018b1c91fe45b8da63bff00f931ee0be8a24669378d8e6a677d1913e"
+    },
+    {
+      "path": "reports/risk_deciles/poisson_lognormal_deciles.csv",
+      "bytes": 2147,
+      "sha256": "10c3ee4c418960e850cb7771cf79cf38b5d449cc694a3ac2bd96362338940d57"
+    },
+    {
+      "path": "reports/risk_deciles/tweedie_deciles.csv",
+      "bytes": 1988,
+      "sha256": "085b40ffef3646383091e15df0ce169084610e9b7a1bbd77304cadd29d4a0ad2"
+    },
+    {
+      "path": "reports/risk_deciles/gbm_component_deciles.csv",
+      "bytes": 2155,
+      "sha256": "90834fb77e2975deace97b7e071d402ecd2294feeec74f14dd9c8bc5a5dce560"
+    },
+    {
+      "path": "reports/risk_deciles/direct_boosting_deciles.csv",
+      "bytes": 1896,
+      "sha256": "ade5cee2709a6a34cb56b64d7b5495d7418226ed4671f1da7296a77a2bfc1eee"
+    },
+    {
+      "path": "reports/extreme_value/metrics.json",
+      "bytes": 2247,
+      "sha256": "b7c8cdfb483fc49b097786c5cf1e52ce98a1b6247e274552d04afa2b6f5a18eb"
+    },
+    {
+      "path": "reports/extreme_value/high_quantile_comparison.csv",
+      "bytes": 366,
+      "sha256": "bee696f01dc51c2c34358376466db3560dff8ff51470d2898c03ceae41cba5f6"
+    },
+    {
+      "path": "reports/bonus_malus/metrics.json",
+      "bytes": 1364,
+      "sha256": "6ea8e8a317b826b59878c04dfedfa1ae521649314137f76895248513f9caaaab"
+    },
+    {
+      "path": "reports/bonus_malus/observed_by_bonus_malus.csv",
+      "bytes": 1204,
+      "sha256": "9e98f2ff03e6f52446071b8c4b3830e1edc4be708893b5079900a0aee22f1552"
+    },
+    {
+      "path": "reports/explainability/frequency_permutation_importance.csv",
+      "bytes": 847,
+      "sha256": "5c8685cd40e284ec54c9cd5e4dd5071e85fad0be74206e7067a3f55cf44af5da"
+    }
+  ],
+  "total_bytes": 36138635
+}

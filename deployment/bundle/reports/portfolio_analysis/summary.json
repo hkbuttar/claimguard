@@ -1,0 +1,52 @@
+{
+  "generated_at_utc": "2026-08-13T15:44:55.343870+00:00",
+  "portfolio": {
+    "policies": 678013,
+    "exposure": 358360.1054629838,
+    "recorded_claims": 36102,
+    "frequency": 0.10074224069489537,
+    "linked_loss": 59909216.5
+  },
+  "severity": {
+    "count": 26444,
+    "mean": 2265.5126493722582,
+    "median": 1172.0,
+    "std": 29371.03111304117,
+    "p75": 1212.385,
+    "p90": 2767.604,
+    "p95": 4765.093499999995,
+    "p99": 16451.223999999962,
+    "p99_5": 34376.964349999944,
+    "maximum": 4075400.56,
+    "skewness": 109.52986466339235,
+    "log_mean": 6.8466766602503215,
+    "log_std": 1.130022981743639,
+    "log_skewness": -0.5630899442908728
+  },
+  "loss_concentration": [
+    {
+      "TopClaimShare": 0.1,
+      "ClaimCount": 2645,
+      "Loss": 35901267.75,
+      "LossShare": 0.5992611796216697
+    },
+    {
+      "TopClaimShare": 0.05,
+      "ClaimCount": 1323,
+      "Loss": 31208589.23,
+      "LossShare": 0.5209313533586272
+    },
+    {
+      "TopClaimShare": 0.01,
+      "ClaimCount": 265,
+      "Loss": 22773883.740000002,
+      "LossShare": 0.3801399028478365
+    },
+    {
+      "TopClaimShare": 0.005,
+      "ClaimCount": 133,
+      "Loss": 19743176.05,
+      "LossShare": 0.3295515649082141
+    }
+  ]
+}

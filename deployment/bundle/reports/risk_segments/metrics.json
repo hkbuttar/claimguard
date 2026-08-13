@@ -1,0 +1,89 @@
+{
+  "generated_at_utc": "2026-08-13T16:24:44.745808+00:00",
+  "thresholds": {
+    "frequency_median": 0.08253823827999168,
+    "severity_median": 1785.4167342243456,
+    "large_loss_probability_q75": 0.05726835606328742,
+    "large_claim_amount": 4808.008000000003,
+    "premium_tiers": {
+      "lower": 127.08373250583236,
+      "upper": 188.9603982837659
+    }
+  },
+  "policies": 678013,
+  "priority_review_policies": 147139,
+  "segments": [
+    {
+      "RiskSegment": "Standard Risk",
+      "Policies": 188447,
+      "Exposure": 111878.44007934726,
+      "PredictedAnnualFrequency": 0.061237150232754216,
+      "ExpectedSeverity": 1663.0066857486913,
+      "AnnualPurePremium": 102.0771736472919,
+      "LargeLossProbability": 0.03954203479043335,
+      "ElevatedTailRiskShare": 0.07295419932394785,
+      "PredictedLoss": 11346630.290316483,
+      "RecordedClaims": 5972,
+      "LinkedClaims": 4820,
+      "ObservedLoss": 6700947.91,
+      "ObservedFrequency": 0.0533793642078357,
+      "ObservedSeverity": 1390.2381556016599,
+      "ObservedLossCost": 59.89489936798819,
+      "ObservedExpectedRatio": 0.5905672202714464
+    },
+    {
+      "RiskSegment": "Frequent Claimant",
+      "Policies": 150559,
+      "Exposure": 73904.29115278089,
+      "PredictedAnnualFrequency": 0.16192515283180658,
+      "ExpectedSeverity": 1680.6513410766622,
+      "AnnualPurePremium": 273.06769869221404,
+      "LargeLossProbability": 0.044916964472177516,
+      "ElevatedTailRiskShare": 0.13770681261166717,
+      "PredictedLoss": 17973073.863506746,
+      "RecordedClaims": 11433,
+      "LinkedClaims": 8303,
+      "ObservedLoss": 12078901.73,
+      "ObservedFrequency": 0.15470008333297972,
+      "ObservedSeverity": 1454.7635469107552,
+      "ObservedLossCost": 163.43978869954282,
+      "ObservedExpectedRatio": 0.6720554214449366
+    },
+    {
+      "RiskSegment": "Catastrophic Exposure",
+      "Policies": 150559,
+      "Exposure": 85652.71028969235,
+      "PredictedAnnualFrequency": 0.06366835721616802,
+      "ExpectedSeverity": 2063.531120373667,
+      "AnnualPurePremium": 131.26934807694644,
+      "LargeLossProbability": 0.05156625485619334,
+      "ElevatedTailRiskShare": 0.32257121792785554,
+      "PredictedLoss": 11266838.772287082,
+      "RecordedClaims": 4770,
+      "LinkedClaims": 3698,
+      "ObservedLoss": 9648169.28,
+      "ObservedFrequency": 0.05569000658434545,
+      "ObservedSeverity": 2609.023601946998,
+      "ObservedLossCost": 112.64289533125356,
+      "ObservedExpectedRatio": 0.856333304753725
+    },
+    {
+      "RiskSegment": "Critical Risk",
+      "Policies": 188448,
+      "Exposure": 86924.66394116326,
+      "PredictedAnnualFrequency": 0.17403611497883018,
+      "ExpectedSeverity": 2117.610917848479,
+      "AnnualPurePremium": 371.69889151746054,
+      "LargeLossProbability": 0.058936133980045914,
+      "ElevatedTailRiskShare": 0.4587949991509594,
+      "PredictedLoss": 28305270.235242058,
+      "RecordedClaims": 13927,
+      "LinkedClaims": 9623,
+      "ObservedLoss": 31481197.58,
+      "ObservedFrequency": 0.16021919865490392,
+      "ObservedSeverity": 3271.4535571027745,
+      "ObservedLossCost": 362.1664571669635,
+      "ObservedExpectedRatio": 1.1122026858730953
+    }
+  ]
+}

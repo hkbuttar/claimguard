@@ -1,0 +1,66 @@
+{
+  "generated_at_utc": "2026-08-13T16:07:52.480671+00:00",
+  "split": {
+    "test_size": 0.2,
+    "training_policies": 542410,
+    "test_policies": 135603,
+    "training_claims": 21044
+  },
+  "models": {
+    "poisson_gamma": {
+      "mae": 190.70548033691827,
+      "rmse": 2861.7262671017465,
+      "mean_tweedie_deviance": 70.00186333018152,
+      "observed_aggregate_loss": 11868103.84,
+      "predicted_aggregate_loss": 15815797.195144448,
+      "aggregate_bias": 3947693.3551444486,
+      "predicted_observed_ratio": 1.3326305034372237,
+      "normalized_gini": 0.11238467139533757,
+      "top_decile_loss_capture": 0.13884419636153097
+    },
+    "poisson_lognormal": {
+      "mae": 198.04174609046694,
+      "rmse": 2861.5385985338385,
+      "mean_tweedie_deviance": 68.67046732558444,
+      "observed_aggregate_loss": 11868103.84,
+      "predicted_aggregate_loss": 16873202.17255167,
+      "aggregate_bias": 5005098.332551669,
+      "predicted_observed_ratio": 1.4217268739832385,
+      "normalized_gini": 0.1419359675798947,
+      "top_decile_loss_capture": 0.130226989149768
+    },
+    "tweedie": {
+      "mae": 162.94818987603168,
+      "rmse": 2861.6021532908994,
+      "mean_tweedie_deviance": 70.6666013400629,
+      "observed_aggregate_loss": 11868103.84,
+      "predicted_aggregate_loss": 11788791.996039012,
+      "aggregate_bias": -79311.8439609874,
+      "predicted_observed_ratio": 0.9933172269951265,
+      "normalized_gini": 0.18889456868347013,
+      "top_decile_loss_capture": 0.18151767873308397
+    },
+    "gbm_component": {
+      "mae": 176.29764719992733,
+      "rmse": 2861.3102599311296,
+      "mean_tweedie_deviance": 68.26145653474445,
+      "observed_aggregate_loss": 11868103.84,
+      "predicted_aggregate_loss": 13782209.987541936,
+      "aggregate_bias": 1914106.1475419365,
+      "predicted_observed_ratio": 1.1612815470227582,
+      "normalized_gini": 0.2232104834634465,
+      "top_decile_loss_capture": 0.23881686309883177
+    },
+    "direct_boosting": {
+      "mae": 138.8482935481476,
+      "rmse": 2863.8902783274575,
+      "mean_tweedie_deviance": 77.04619802826778,
+      "observed_aggregate_loss": 11868103.84,
+      "predicted_aggregate_loss": 8141563.987839751,
+      "aggregate_bias": -3726539.852160249,
+      "predicted_observed_ratio": 0.6860037709140697,
+      "normalized_gini": 0.22941077257551065,
+      "top_decile_loss_capture": 0.28906422005151583
+    }
+  }
+}

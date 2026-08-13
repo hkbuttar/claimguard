@@ -1,0 +1,94 @@
+{
+  "generated_at_utc": "2026-08-13T16:18:10.190336+00:00",
+  "primary_quantile": 0.95,
+  "gpd": {
+    "threshold": 4765.093499999995,
+    "exceedances": 1323,
+    "exceedance_probability": 0.05003025260928755,
+    "mean_excess": 18824.16517724868,
+    "shape": 0.9039543413360036,
+    "scale": 3479.082638800243,
+    "finite_mean": true,
+    "finite_variance": false,
+    "expected_excess": 36223.21599117118,
+    "expected_claim_given_exceedance": 40988.309491171174
+  },
+  "high_quantiles": [
+    {
+      "Probability": 0.99,
+      "Empirical": 16451.223999999962,
+      "Gamma": 12647.851910538728,
+      "Lognormal": 13035.784588140697,
+      "EVT": 17412.889390229906
+    },
+    {
+      "Probability": 0.995,
+      "Empirical": 34376.964349999944,
+      "Gamma": 14792.584662536054,
+      "Lognormal": 17281.086797335935,
+      "EVT": 31784.46728956846
+    },
+    {
+      "Probability": 0.999,
+      "Empirical": 152223.24082000108,
+      "Gamma": 19825.75621991974,
+      "Lognormal": 30904.10053775465,
+      "EVT": 133151.53981719245
+    },
+    {
+      "Probability": 0.9995,
+      "Empirical": 210869.94920500054,
+      "Gamma": 22010.339384070285,
+      "Lognormal": 38753.53210409386,
+      "EVT": 248353.21506919476
+    }
+  ],
+  "return_levels": [
+    {
+      "ReturnPeriod": 100,
+      "LossLevel": 17412.889390229906
+    },
+    {
+      "ReturnPeriod": 500,
+      "LossLevel": 71585.4710409249
+    },
+    {
+      "ReturnPeriod": 1000,
+      "LossLevel": 133151.53981719245
+    },
+    {
+      "ReturnPeriod": 5000,
+      "LossLevel": 567395.5875200299
+    },
+    {
+      "ReturnPeriod": 10000,
+      "LossLevel": 1060905.368518512
+    }
+  ],
+  "exceedance_probabilities": [
+    {
+      "LossLevel": 10000,
+      "ExceedanceProbability": 0.019349314214413004
+    },
+    {
+      "LossLevel": 25000,
+      "ExceedanceProbability": 0.006579765035182196
+    },
+    {
+      "LossLevel": 50000,
+      "ExceedanceProbability": 0.0029932401171301067
+    },
+    {
+      "LossLevel": 100000,
+      "ExceedanceProbability": 0.0013761413227579642
+    },
+    {
+      "LossLevel": 250000,
+      "ExceedanceProbability": 0.0004963443692844099
+    },
+    {
+      "LossLevel": 1000000,
+      "ExceedanceProbability": 0.00010676529447621292
+    }
+  ]
+}
