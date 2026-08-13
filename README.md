@@ -129,3 +129,15 @@ The output contains Poisson–Gamma, Poisson–lognormal, HistGradientBoosting, 
 XGBoost frequency×severity estimates, exposure-period losses, and reusable
 nonlinear scoring artifacts. Actuarial models are stored as portable coefficient
 tables with explicit formula and link metadata.
+
+## Direct Tweedie pure premium
+
+Compare component-based expected loss with a direct compound Poisson–Gamma
+Tweedie GLM using:
+
+```bash
+python -m pure_premium.tweedie_model
+```
+
+All candidates use a common policy holdout. The command also refits and stores a
+direct Tweedie scoring pipeline for the complete portfolio.
