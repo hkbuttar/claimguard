@@ -1,0 +1,18 @@
+# Core data and scientific computing
+numpy>=2.0,<3
+pandas>=2.2,<3
+polars>=1.0,<2
+pyarrow>=17,<24
+scipy>=1.13,<2
+
+# Statistical and machine-learning models
+scikit-learn>=1.5,<2
+statsmodels>=0.14,<1
+xgboost>=2.1,<4
+shap>=0.46,<1
+
+# Visualization and API
+matplotlib>=3.9,<4
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+
