@@ -274,3 +274,15 @@ python -m calibration.calibration_analysis
 
 The report separates aggregate balance, risk-group calibration, segment loss
 cost, probability reliability, and Brier performance from model ranking ability.
+
+## Portfolio stress testing
+
+Simulate aggregate portfolio losses with an empirical severity body and EVT tail
+using:
+
+```bash
+python -m portfolio.stress_testing
+```
+
+The Monte Carlo report estimates expected loss, volatility, 95% and 99% VaR,
+Expected Shortfall, and the contribution of extreme claims to portfolio risk.
