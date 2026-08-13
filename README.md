@@ -297,3 +297,15 @@ python -m integration.model_benchmark
 
 The benchmark compares predictive accuracy, calibration, ranking, tail
 protection, and interpretability without forcing one model to win every task.
+
+## Statistical uncertainty
+
+Estimate paired policy-level model intervals, aggregate calibration uncertainty,
+and bootstrapped EVT parameter sensitivity with:
+
+```bash
+python -m calibration.statistical_rigor
+```
+
+Reported model improvements are classified as stable only when their paired 95%
+bootstrap intervals consistently favor one approach.
