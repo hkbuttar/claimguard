@@ -81,3 +81,14 @@ python -m frequency.traditional_models
 
 Held-out metrics, coefficient tables, risk-decile calibration, predictions, and
 a calibration chart are written to `reports/traditional_frequency/`.
+
+## Nonlinear claim-frequency models
+
+Train exposure-aware HistGradientBoosting and XGBoost Poisson models with:
+
+```bash
+python -m frequency.ml_models
+```
+
+The resulting report compares nonlinear performance with the naive rate and
+traditional GLMs on the same policy holdout.
