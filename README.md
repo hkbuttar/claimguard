@@ -309,3 +309,14 @@ python -m calibration.statistical_rigor
 
 Reported model improvements are classified as stable only when their paired 95%
 bootstrap intervals consistently favor one approach.
+
+## Data-quality sensitivity
+
+Compare minimal, strict, and benchmark-compatible cleaning decisions with:
+
+```bash
+python -m preprocessing.data_quality_sensitivity
+```
+
+The analysis quantifies changes in portfolio targets, tail concentration, and
+held-out Tweedie performance, including the effect of clipping extreme claims.
