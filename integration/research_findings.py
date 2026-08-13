@@ -226,19 +226,22 @@ def render_report(findings: list[dict[str, str]]) -> str:
 
 
 def make_notebook(findings: list[dict[str, str]]) -> dict:
-    """Create a lightweight notebook that reads canonical generated artifacts."""
-    report = render_report(findings)
+    """Create an executable synthesis with canonical evidence for every finding."""
     cells = [
         {
             "cell_type": "markdown",
             "metadata": {},
-            "source": [line + "\n" for line in report.splitlines()],
+            "source": [
+                "# ClaimGuard research findings\n",
+                "\n",
+                "This notebook reconstructs the evidence behind all twelve research findings from persisted held-out results. It does not retrain models.\n",
+            ],
         },
         {
             "cell_type": "markdown",
             "metadata": {},
             "source": [
-                "## Reproducible evidence tables\n",
+                "## Load canonical evidence\n",
                 "\n",
                 "Run the following cell after generating the model reports. It supports Jupyter launched from either the repository root or the notebooks directory.\n",
             ],
@@ -251,6 +254,7 @@ def make_notebook(findings: list[dict[str, str]]) -> dict:
             "source": [
                 "from pathlib import Path\n",
                 "\n",
+                "import json\n",
                 "import pandas as pd\n",
                 "\n",
                 "project_root = next(\n",
@@ -260,13 +264,81 @@ def make_notebook(findings: list[dict[str, str]]) -> dict:
                 "if project_root is None:\n",
                 "    raise FileNotFoundError('Could not locate the ClaimGuard reports directory')\n",
                 "reports = project_root / 'reports'\n",
+                "\n",
+                "def load_json(directory, filename='metrics.json'):\n",
+                "    return json.loads((reports / directory / filename).read_text())\n",
+                "\n",
+                "frequency = pd.read_csv(reports / 'ml_frequency' / 'model_comparison.csv')\n",
+                "severity = pd.read_csv(reports / 'ml_severity' / 'model_comparison.csv')\n",
+                "premium = pd.read_csv(reports / 'ml_pure_premium' / 'model_comparison.csv')\n",
                 "benchmark = pd.read_csv(reports / 'model_benchmark' / 'model_benchmark.csv')\n",
                 "tail = pd.read_csv(reports / 'tail_performance' / 'tail_performance.csv')\n",
-                "sensitivity = pd.read_csv(reports / 'data_quality_sensitivity' / 'scenario_comparison.csv')\n",
-                "display(benchmark, tail, sensitivity)\n",
+                "frequency_importance = pd.read_csv(reports / 'explainability' / 'frequency_permutation_importance.csv')\n",
+                "severity_importance = pd.read_csv(reports / 'explainability' / 'severity_permutation_importance.csv')\n",
+                "feature_ranks = pd.read_csv(reports / 'explainability' / 'feature_rank_comparison.csv')\n",
+                "bonus = load_json('bonus_malus')\n",
+                "calibration = load_json('calibration')\n",
+                "deciles = load_json('risk_deciles')\n",
+                "large_loss = load_json('large_loss_classification')\n",
+                "stress = load_json('portfolio_stress')\n",
+                "evt = load_json('extreme_value')\n",
+                "rigor = load_json('statistical_rigor')\n",
+                "print(f'Loaded ClaimGuard evidence from {reports}')\n",
             ],
         },
     ]
+    evidence_code = [
+        "frequency_ranks = feature_ranks[['Feature', 'FrequencyGLMRank', 'FrequencyPermutationRank', 'FrequencySHAPRank']]\ndisplay(frequency_ranks.sort_values('FrequencyPermutationRank'))",
+        "severity_ranks = feature_ranks[['Feature', 'SeverityGLMRank', 'SeverityPermutationRank', 'SeveritySHAPRank']]\ndisplay(severity_ranks.sort_values('SeveritySHAPRank'))",
+        "display(feature_ranks.set_index('Feature').sort_index())",
+        "display(pd.DataFrame({task: values for task, values in bonus.items() if task in ('frequency', 'severity', 'pure_premium')}).T[['relativity_per_10_points', 'relativity_95_low', 'relativity_95_high', 'deviance_improvement']])",
+        "display(benchmark[['Task', 'Metric', 'TraditionalModel', 'TraditionalValue', 'MLModel', 'MLValue', 'Winner']])",
+        "display(pd.DataFrame(rigor['comparisons'])[['Comparison', 'TraditionalModel', 'MLModel', 'lower', 'upper', 'StatisticallyStableMLImprovement']])",
+        "display(premium[['Model', 'mean_tweedie_deviance', 'mae', 'predicted_observed_ratio', 'normalized_gini']].sort_values('mean_tweedie_deviance'))",
+        "pure_premium_calibration = pd.DataFrame(calibration['pure_premium']).T\npure_premium_calibration['absolute_ratio_error'] = (pure_premium_calibration['observed_expected_ratio'] - 1).abs()\ndisplay(pure_premium_calibration.sort_values('absolute_ratio_error'))",
+        "top_one = tail.loc[tail['Segment'].eq('Top 1%'), ['Model', 'claims', 'mae', 'observed_loss', 'predicted_loss', 'predicted_observed_ratio']]\ndisplay(top_one.sort_values('predicted_observed_ratio', ascending=False))",
+        "decile_evidence = pd.DataFrame(deciles['diagnostics']).T\ndisplay(decile_evidence[['spearman_decile_vs_observed_loss_cost', 'highest_to_lowest_loss_cost_ratio', 'highest_decile_loss_capture', 'aggregate_observed_expected_ratio']].sort_values('highest_decile_loss_capture', ascending=False))",
+        "rows = []\nfor threshold, details in large_loss['thresholds'].items():\n    for model, metrics in details['models'].items():\n        rows.append({'Threshold': threshold, 'ClaimAmount': details['claim_amount_threshold'], 'Model': model, **metrics})\ndisplay(pd.DataFrame(rows)[['Threshold', 'ClaimAmount', 'Model', 'event_rate', 'pr_auc', 'roc_auc', 'recall', 'precision']])",
+        "display(pd.DataFrame([stress['tail_impact']]).T.rename(columns={0: 'Tail share'}))\ndisplay(pd.DataFrame([stress['full_tail'], stress['tail_removed']], index=['Full EVT tail', 'Tail removed'])[['mean', 'var_95', 'expected_shortfall_95', 'var_99', 'expected_shortfall_99']])\ndisplay(pd.DataFrame(rigor['evt'])[['Quantile', 'ShapeMedian', 'ShapeLower', 'ShapeUpper', 'FiniteMeanProbability', 'FiniteVarianceProbability']])",
+    ]
+    for index, (finding, code) in enumerate(zip(findings, evidence_code), start=1):
+        cells.extend(
+            [
+                {
+                    "cell_type": "markdown",
+                    "metadata": {},
+                    "source": [
+                        f"## {index}. {finding['Question']}\n",
+                        "\n",
+                        f"**{finding['Classification']}** — {finding['Finding']}\n",
+                        "\n",
+                        f"Expected evidence: {finding['Evidence']}\n",
+                    ],
+                },
+                {
+                    "cell_type": "code",
+                    "execution_count": None,
+                    "metadata": {},
+                    "outputs": [],
+                    "source": [line + "\n" for line in code.splitlines()],
+                },
+            ]
+        )
+    cells.append(
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [
+                "## Overall conclusion\n",
+                "\n",
+                "ML improves frequency estimation, severity MAE, and risk ranking, while actuarial models retain advantages in calibration, distributional fit, and transparent uncertainty. EVT better represents extreme losses, but its parameters are unstable and cannot compensate for weak policy-level large-loss predictability.\n",
+                "\n",
+                "The most defensible architecture is hybrid: nonlinear frequency and ranking, a calibrated Tweedie benchmark for expected loss, interpretable component models for diagnosis, and separate EVT scenarios for tail stress testing.\n",
+                "\n",
+                "Classifications: **Robust** has held-out and uncertainty support; **Suggestive** has consistent evidence with material trade-offs; **Exploratory** is scenario evidence with strong sensitivity; **Data-limited** means available predictors do not support a reliable operational conclusion.\n",
+            ],
+        }
+    )
     return {
         "cells": cells,
         "metadata": {

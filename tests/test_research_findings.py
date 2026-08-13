@@ -22,7 +22,7 @@ def test_findings_reject_unknown_classification() -> None:
         validate_findings(findings)
 
 
-def test_notebook_has_valid_minimal_structure() -> None:
+def test_notebook_has_executable_evidence_for_every_finding() -> None:
     findings = [
         {
             "Question": str(index),
@@ -34,7 +34,8 @@ def test_notebook_has_valid_minimal_structure() -> None:
     ]
     notebook = make_notebook(findings)
     assert notebook["nbformat"] == 4
-    assert len(notebook["cells"]) == 3
-    assert notebook["cells"][-1]["cell_type"] == "code"
-    source = "".join(notebook["cells"][-1]["source"])
+    code_cells = [cell for cell in notebook["cells"] if cell["cell_type"] == "code"]
+    assert len(code_cells) == 13
+    source = "".join(code_cells[0]["source"])
     assert "Path.cwd().parents" in source
+    assert sum("Expected evidence:" in "".join(cell["source"]) for cell in notebook["cells"]) == 12
