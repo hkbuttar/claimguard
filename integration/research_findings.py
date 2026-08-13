@@ -240,7 +240,7 @@ def make_notebook(findings: list[dict[str, str]]) -> dict:
             "source": [
                 "## Reproducible evidence tables\n",
                 "\n",
-                "Run the following cell from the repository root after generating the model reports.\n",
+                "Run the following cell after generating the model reports. It supports Jupyter launched from either the repository root or the notebooks directory.\n",
             ],
         },
         {
@@ -253,7 +253,13 @@ def make_notebook(findings: list[dict[str, str]]) -> dict:
                 "\n",
                 "import pandas as pd\n",
                 "\n",
-                "reports = Path.cwd() / 'reports'\n",
+                "project_root = next(\n",
+                "    (path for path in (Path.cwd(), *Path.cwd().parents) if (path / 'reports').is_dir()),\n",
+                "    None,\n",
+                ")\n",
+                "if project_root is None:\n",
+                "    raise FileNotFoundError('Could not locate the ClaimGuard reports directory')\n",
+                "reports = project_root / 'reports'\n",
                 "benchmark = pd.read_csv(reports / 'model_benchmark' / 'model_benchmark.csv')\n",
                 "tail = pd.read_csv(reports / 'tail_performance' / 'tail_performance.csv')\n",
                 "sensitivity = pd.read_csv(reports / 'data_quality_sensitivity' / 'scenario_comparison.csv')\n",

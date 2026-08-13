@@ -36,3 +36,5 @@ def test_notebook_has_valid_minimal_structure() -> None:
     assert notebook["nbformat"] == 4
     assert len(notebook["cells"]) == 3
     assert notebook["cells"][-1]["cell_type"] == "code"
+    source = "".join(notebook["cells"][-1]["source"])
+    assert "Path.cwd().parents" in source
