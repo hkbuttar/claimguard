@@ -92,3 +92,14 @@ python -m frequency.ml_models
 
 The resulting report compares nonlinear performance with the naive rate and
 traditional GLMs on the same policy holdout.
+
+## Traditional claim-severity models
+
+Fit Gamma GLM and bias-corrected lognormal severity models with:
+
+```bash
+python -m severity.traditional_models
+```
+
+The policy-grouped holdout evaluation includes monetary errors, Gamma deviance,
+aggregate bias, coefficient tables, predictions, and risk-decile calibration.
