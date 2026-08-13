@@ -24,3 +24,16 @@ Verify the setup with:
 ```bash
 pytest -q
 ```
+
+## Data audit and reconciliation
+
+Profile data quality and reconcile policy claim counts against observed claim
+records with:
+
+```bash
+python -m preprocessing.audit_data
+```
+
+This produces JSON and Markdown reports plus row-level flags under `data/audit/`.
+Every rule has an explicit valid, correctable, ambiguous, or excluded handling
+decision. Raw source files remain unchanged.

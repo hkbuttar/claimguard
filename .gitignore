@@ -10,5 +10,6 @@ data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
+data/audit/*
+!data/audit/.gitkeep
 data/.cache/
-

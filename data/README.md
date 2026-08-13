@@ -11,3 +11,15 @@ Downloaded files, generated data, and the OpenML cache are intentionally not
 tracked by Git. `raw/` must remain an unmodified source layer; cleaning and
 reconciliation outputs belong in `processed/`.
 
+## Data audit
+
+Generate the validation report and row-level issue flags with:
+
+```bash
+python -m preprocessing.audit_data
+```
+
+Outputs are written to `audit/`. The report records rule counts and explicit
+handling decisions. Flags preserve ambiguous observations for investigation,
+while exclusions apply only to downstream analytical uses; raw data are never
+changed.
