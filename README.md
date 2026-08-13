@@ -25,6 +25,10 @@ Verify the setup with:
 pytest -q
 ```
 
+The validation suite includes deterministic synthetic portfolios with known
+frequency, severity, pure-premium, reconciliation, calibration, and risk-group
+results, alongside focused tests for every modeling module.
+
 ## Data audit and reconciliation
 
 Profile data quality and reconcile policy claim counts against observed claim

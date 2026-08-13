@@ -250,6 +250,7 @@ def make_notebook(findings: list[dict[str, str]]) -> dict:
             "outputs": [],
             "source": [
                 "from pathlib import Path\n",
+                "\n",
                 "import pandas as pd\n",
                 "\n",
                 "reports = Path.cwd() / 'reports'\n",
