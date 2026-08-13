@@ -164,3 +164,16 @@ python -m segmentation.risk_deciles
 
 Each model report includes exposure, recorded and linked claims, predicted and
 observed loss, severity, relative loss cost, calibration, and ranking diagnostics.
+
+## Large-loss classification
+
+Model the probability that claim severity exceeds development-sample 90th, 95th,
+and 99th percentile thresholds with:
+
+```bash
+python -m tail_risk.large_loss_classification
+```
+
+Logistic regression and gradient boosting are evaluated on policy-grouped
+holdout claims using PR-AUC, ROC-AUC, recall, precision, Brier score, and
+probability calibration.
