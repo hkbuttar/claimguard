@@ -13,3 +13,5 @@ data/processed/*
 data/audit/*
 !data/audit/.gitkeep
 data/.cache/
+reports/*
+!reports/.gitkeep

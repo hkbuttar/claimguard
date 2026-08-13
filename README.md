@@ -48,3 +48,14 @@ python -m preprocessing.build_tables
 
 The generated tables retain audit lineage, join policy characteristics onto
 individual claims, and reconcile individual claim amounts to policy total loss.
+
+## Portfolio analysis
+
+Generate portfolio summaries, exposure-adjusted frequency tables, severity
+statistics, loss-concentration metrics, and diagnostic charts with:
+
+```bash
+python -m portfolio.exploratory_analysis
+```
+
+The reproducible report is written to `reports/portfolio_analysis/`.
