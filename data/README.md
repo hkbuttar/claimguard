@@ -23,3 +23,17 @@ Outputs are written to `audit/`. The report records rule counts and explicit
 handling decisions. Flags preserve ambiguous observations for investigation,
 while exclusions apply only to downstream analytical uses; raw data are never
 changed.
+
+## Modeling tables
+
+Build the actuarial datasets with:
+
+```bash
+python -m preprocessing.build_tables
+```
+
+The command writes `policy_frequency.parquet`, `claim_severity.parquet`, and
+`policy_loss.parquet` to `processed/`, together with a checksum and reconciliation
+manifest. Exposure above one year is capped while its source value is retained.
+Unmatched or otherwise excluded claims are omitted, ambiguous records remain
+flagged, and policies without observed claim records receive zero total loss.
