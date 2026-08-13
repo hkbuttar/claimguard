@@ -103,3 +103,15 @@ python -m severity.traditional_models
 
 The policy-grouped holdout evaluation includes monetary errors, Gamma deviance,
 aggregate bias, coefficient tables, predictions, and risk-decile calibration.
+
+## Nonlinear claim-severity models
+
+Train Random Forest, Gamma-loss HistGradientBoosting, and Gamma-objective
+XGBoost models with:
+
+```bash
+python -m severity.ml_models
+```
+
+The output compares all severity models on the same policy-grouped holdout and
+stores reusable model artifacts, predictions, and calibration tables.
