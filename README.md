@@ -250,3 +250,15 @@ python -m portfolio.geographic_analysis
 
 The report separates frequency from severity, assigns descriptive geographic
 risk profiles, and avoids causal interpretation of observed associations.
+
+## Model explainability
+
+Compare GLM coefficients and relativities with held-out permutation importance
+and SHAP contributions using:
+
+```bash
+python -m explainability.model_explainability
+```
+
+Frequency and severity reports align raw-feature ranks across actuarial and
+nonlinear models while keeping predictive importance distinct from causality.
