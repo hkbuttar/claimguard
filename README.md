@@ -238,3 +238,15 @@ python -m portfolio.bonus_malus_analysis
 
 Nested held-out GLMs test whether Bonus-Malus adds predictive value after
 controlling for driver, vehicle, and geographic rating characteristics.
+
+## Geographic risk analysis
+
+Decompose observed insurance risk across region, area, and population-density
+bands with:
+
+```bash
+python -m portfolio.geographic_analysis
+```
+
+The report separates frequency from severity, assigns descriptive geographic
+risk profiles, and avoids causal interpretation of observed associations.
