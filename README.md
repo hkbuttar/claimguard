@@ -214,3 +214,15 @@ python -m severity.quantile_models
 The policy-grouped holdout report compares pinball loss with unconditional
 benchmarks, evaluates coverage and crossing, and stores full-portfolio scoring
 models and predictions.
+
+## Interpretable risk segments
+
+Create actuarial frequency/severity quadrants enriched with pure premium and
+large-loss probability using:
+
+```bash
+python -m segmentation.risk_segments
+```
+
+The output assigns every policy to standard risk, frequent claimant,
+catastrophic exposure, or critical risk without introducing arbitrary clustering.
