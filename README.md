@@ -29,6 +29,20 @@ The validation suite includes deterministic synthetic portfolios with known
 frequency, severity, pure-premium, reconciliation, calibration, and risk-group
 results, alongside focused tests for every modeling module.
 
+## Unified policy risk engine
+
+Score a JSON policy through the fitted frequency, severity, pure-premium, and
+large-loss models with:
+
+```bash
+python -m integration.risk_engine --policy policy.json
+```
+
+The engine validates all fields and category domains, then returns expected
+claims, conditional severity, annual and exposure-period loss, large-loss
+probability, portfolio percentiles, risk labels, an actuarial segment, and a
+zero-to-100 ClaimGuard score.
+
 ## Data audit and reconciliation
 
 Profile data quality and reconcile policy claim counts against observed claim
