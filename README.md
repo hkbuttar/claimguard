@@ -43,6 +43,18 @@ claims, conditional severity, annual and exposure-period loss, large-loss
 probability, portfolio percentiles, risk labels, an actuarial segment, and a
 zero-to-100 ClaimGuard score.
 
+## Inference API
+
+Serve the pre-trained models and precomputed portfolio analytics with:
+
+```bash
+uvicorn backend.app:app --host 0.0.0.0 --port 8000
+```
+
+Interactive OpenAPI documentation is available at `/docs`. The service scores
+policies at `POST /policy/score` and exposes read-only portfolio, model,
+calibration, tail-risk, and Bonus-Malus reports. It never trains models.
+
 ## Data audit and reconciliation
 
 Profile data quality and reconcile policy claim counts against observed claim
