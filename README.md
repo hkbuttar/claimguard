@@ -201,3 +201,16 @@ python -m tail_risk.extreme_value
 
 EVT tail estimates are compared with empirical, Gamma, and lognormal severity
 quantiles, with threshold sensitivity reported explicitly.
+
+## Conditional severity quantiles
+
+Estimate policy-level 50th, 75th, 90th, and 95th percentile claim severities
+with:
+
+```bash
+python -m severity.quantile_models
+```
+
+The policy-grouped holdout report compares pinball loss with unconditional
+benchmarks, evaluates coverage and crossing, and stores full-portfolio scoring
+models and predictions.
