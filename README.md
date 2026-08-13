@@ -153,3 +153,14 @@ python -m pure_premium.ml_model
 
 The common-holdout report covers Tweedie deviance, MAE, aggregate calibration,
 normalized Gini, top-decile loss capture, and calibration by predicted risk.
+
+## Policy risk deciles
+
+Create equal-sized held-out risk groups for every pure-premium model with:
+
+```bash
+python -m segmentation.risk_deciles
+```
+
+Each model report includes exposure, recorded and linked claims, predicted and
+observed loss, severity, relative loss cost, calibration, and ranking diagnostics.
