@@ -262,3 +262,15 @@ python -m explainability.model_explainability
 
 Frequency and severity reports align raw-feature ranks across actuarial and
 nonlinear models while keeping predictive importance distinct from causality.
+
+## Calibration analysis
+
+Consolidate held-out frequency, severity, pure-premium, and large-loss
+probability calibration with:
+
+```bash
+python -m calibration.calibration_analysis
+```
+
+The report separates aggregate balance, risk-group calibration, segment loss
+cost, probability reliability, and Brier performance from model ranking ability.
