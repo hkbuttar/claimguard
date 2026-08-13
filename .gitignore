@@ -17,3 +17,4 @@ reports/*
 !reports/.gitkeep
 !reports/research_findings/
 !reports/research_findings/**
+deployment/bundle/

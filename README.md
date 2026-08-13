@@ -60,6 +60,21 @@ The same process serves the responsive research dashboard at
 interactive policy scorer, actuarial-versus-ML comparisons, loss deciles, EVT
 diagnostics, aggregate stress metrics, risk segments, and Bonus-Malus analysis.
 
+## Deployment
+
+Create the minimal checksummed production artifact bundle, then build and run
+the container:
+
+```bash
+python -m deployment.build_bundle
+docker compose up --build
+```
+
+The container validates every bundled artifact before starting, runs as a
+non-root user, exposes a health check, and performs inference only. The bundle
+contains the fitted models and precomputed dashboard analytics but excludes
+training outputs that production does not consume.
+
 ## Data audit and reconciliation
 
 Profile data quality and reconcile policy claim counts against observed claim
