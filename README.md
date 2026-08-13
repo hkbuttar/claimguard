@@ -115,3 +115,17 @@ python -m severity.ml_models
 
 The output compares all severity models on the same policy-grouped holdout and
 stores reusable model artifacts, predictions, and calibration tables.
+
+## Component pure-premium models
+
+Refit the evaluated frequency and severity components on the full analytical
+portfolio and generate annual policy pure premiums with:
+
+```bash
+python -m pure_premium.component_models
+```
+
+The output contains Poisson–Gamma, Poisson–lognormal, HistGradientBoosting, and
+XGBoost frequency×severity estimates, exposure-period losses, and reusable
+nonlinear scoring artifacts. Actuarial models are stored as portable coefficient
+tables with explicit formula and link metadata.
