@@ -177,3 +177,15 @@ python -m tail_risk.large_loss_classification
 Logistic regression and gradient boosting are evaluated on policy-grouped
 holdout claims using PR-AUC, ROC-AUC, recall, precision, Brier score, and
 probability calibration.
+
+## Severity tail audit
+
+Compare every severity model across ordinary claims and overlapping top-loss
+segments with:
+
+```bash
+python -m tail_risk.tail_performance
+```
+
+The audit uses development-defined thresholds and reports held-out monetary
+error, bias, aggregate underprediction, and predicted-to-observed loss.
