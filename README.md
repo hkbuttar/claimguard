@@ -189,3 +189,15 @@ python -m tail_risk.tail_performance
 
 The audit uses development-defined thresholds and reports held-out monetary
 error, bias, aggregate underprediction, and predicted-to-observed loss.
+
+## Extreme-value modeling
+
+Fit a Peaks Over Threshold Generalized Pareto model and generate threshold
+diagnostics, exceedance probabilities, high quantiles, and return levels with:
+
+```bash
+python -m tail_risk.extreme_value
+```
+
+EVT tail estimates are compared with empirical, Gamma, and lognormal severity
+quantiles, with threshold sensitivity reported explicitly.
