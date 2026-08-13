@@ -286,3 +286,14 @@ python -m portfolio.stress_testing
 
 The Monte Carlo report estimates expected loss, volatility, 95% and 99% VaR,
 Expected Shortfall, and the contribution of extreme claims to portfolio risk.
+
+## Actuarial versus ML benchmark
+
+Consolidate the primary held-out evidence across all modeling tasks with:
+
+```bash
+python -m integration.model_benchmark
+```
+
+The benchmark compares predictive accuracy, calibration, ranking, tail
+protection, and interpretability without forcing one model to win every task.
