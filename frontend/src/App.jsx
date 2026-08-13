@@ -39,7 +39,7 @@ function PolicyExplorer() {
   const update = event => setPolicy(current => ({ ...current, [event.target.name]: event.target.type === "number" ? Number(event.target.value) : event.target.value }));
   const submit = async event => { event.preventDefault(); setLoading(true); setError(""); try { setResult(await api("/policy/score", { method: "POST", body: JSON.stringify(policy) })); } catch (reason) { setError(reason.message); } finally { setLoading(false); } };
   return <div className="explorer-grid"><form className="panel form-panel" onSubmit={submit}><PanelTitle eyebrow="Policy features" title="Estimate risk" /><div className="form-grid">
-    <Field label="Exposure"><input name="exposure" type="number" min="0.01" max="1" value={policy.exposure} onChange={update} /></Field>
+    <Field label="Exposure"><input name="exposure" type="number" min="0.000001" max="1" step="any" value={policy.exposure} onChange={update} /></Field>
     <Field label="Area"><select name="area" value={policy.area} onChange={update}>{["A","B","C","D","E","F"].map(x => <option key={x}>{x}</option>)}</select></Field>
     {[['vehicle_power','Vehicle power'],['vehicle_age','Vehicle age'],['driver_age','Driver age'],['bonus_malus','Bonus-Malus']].map(([name,label]) => <Field label={label} key={name}><input name={name} type="number" min="0" value={policy[name]} onChange={update} /></Field>)}
     <Field label="Vehicle brand"><select name="vehicle_brand" value={policy.vehicle_brand} onChange={update}>{brands.map(x => <option key={x}>{x}</option>)}</select></Field>
